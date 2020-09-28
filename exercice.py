@@ -1,41 +1,46 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 
-import math
+def dissipated_power(voltage, resistance):
+	# TODO: Calculer la puissance dissipée par la résistance.
+	return 0
+
+def orthogonal(v1, v2):
+	# TODO: Retourner vrai si les vecteurs sont orthogonaux, faux sinon.
+	v1[0] # Pour accéder au X
+	v1[1] # Pour accéder au Y
+	dot_product = v1[0] * v2[0] + v1[1] * v2[1]
+	return dot_product == 0
 
 
-def average(a: float, b: float, c: float) -> float:
-    return 0.0
+def average(values):
+	# TODO: Calculer la moyenne des valeurs positives (on ignore les valeurs strictement négatives).7
+	sum =0
+	num_value = 0
+	#pour chaque element on utilise for in
+	for v in values:
+		if v >= 0:
+			sum += v
+			num_value += 1
+	return sum/num_value
 
 
-def to_radians(angle_degs: float, angle_mins: float, angle_secs: float) -> float:
-    return 0.0
+def bills(value):
+	# TODO: Calculez le nombre de billets de 20$, 10$ et 5$ et pièces de 1$ à remettre pour représenter la valeur.
+	bill_values = [20,10,5,1]
+	result = [0,0,0,0]
+
+	i = 0
+	for bill in bill_values:
+		if value >= bill:
+			result[i] = value // bill
+			value = value % bill
+			i += 1
 
 
-def to_degrees(angle_rads: float) -> tuple:
-    return 0.0, 0.0, 0.0
-
-
-def to_celsius(temperature: float) -> float:
-    return 0.0
-
-
-def to_farenheit(temperature: float) -> float:
-    return 0.0
-
-
-def main() -> None:
-    print(f"Moyenne des nombres 2, 4, 6: {average(2.1, 4.3, 6.5)}")
-
-    print(f"Conversion de 100 degres, 2 minutes et 45 secondes en radians: {to_radians(180, 2, 45)}")
-    
-    degrees, minutes, seconds = to_degrees(1.0)
-    print(f"Conversion de 1 radian en degres: {degrees} degres, {minutes} minutes et {seconds} secondes")
-
-    print(f"Conversion de 100 Celsius en Farenheit: {to_farenheit(100.0)}")
-    print(f"Conversion de 451 Farenheit en Celsius: {to_celsius(451.0)}")
-
-
-if __name__ == '__main__':
-    main()
+	return result
+if __name__ == "__main__":
+	print(dissipated_power(69, 420))
+	print(orthogonal((1, 1), (-1, 1)))
+	print(average([1, 4, -2, 10]))
+	print(bills(137))
